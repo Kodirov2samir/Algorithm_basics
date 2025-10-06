@@ -4,3 +4,4 @@
 //so basically in omega there are only two cases
 //Omega(1)
 //Omega(2)
+//Both
