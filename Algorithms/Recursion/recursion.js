@@ -47,3 +47,44 @@ fact(1) = 1
 fact(2) = 2 * 1 = 2
 fact(3) = 3 * 2 = 6
 */
+//1)
+function sum(x) {
+  if(x == 0){
+    return 0
+  }
+  else{
+    return x+sum(x-1)
+  }
+}
+
+console.log(sum(5));
+//2)
+function sum2(x) {
+  if(x == 1){
+    return 1
+  }
+  else{
+    return x*sum2(x-1)
+  }
+}
+console.log(sum2(5));
+//3)
+function countDown(n) {
+  if(n == 1){
+    return 1
+  }
+  console.log(n);
+    return countDown(n-1)
+  
+}
+console.log(countDown(10));
+//4)
+function range(a,b) {
+  
+  if(a > b){
+    return [];
+  }else{
+    return [a,...range(a+1,b)]
+  }
+}
+console.log(range(10,20));
