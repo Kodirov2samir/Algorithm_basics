@@ -53,9 +53,76 @@ console.log(list);
   */
 let newNode = { value: 1.5, next: null };
 
-// вставляем между 1 и 2
+
 newNode.next = list.next.next; // новый узел указывает на бывший второй элемент
 list.next.next = newNode;      // первый элемент теперь указывает на новый узел
 
-console.log(list);
+//Connecting and splitting
+//We can reconnect lists like this:
+let mainList = {
+  value: 1,
+  next:{
+    value:2,
+    next:{
+      value:3,
+      next:null
+    }
+  }
+}
 
+secondPart = mainList.next.next
+mainList.next.next = null
+console.log(mainList);//{ value: 1, next: { value: 2, next: null } }
+console.log(secondPart);//{ value: 3, next: null }
+//We can also connect
+mainList.next.next = secondPart
+console.log(mainList);//{ value: 1, next: { value: 2, next: { value: 3, next: null } } } (came back)
+
+//Deleting
+// mainList.next = mainList.next.next
+// console.log(mainList);//{ value: 1, next: { value: 3, next: null } }
+
+//Adding to the end
+//We can use while
+let cur = mainList
+while(cur.next !== null){
+  cur = cur.next
+}
+let newa = {value:4,next:null}
+cur.next = newa
+console.log(mainList.next.next.next);//{value:4,next:null}
+
+///
+let list2 = {
+  value: 1,
+  next:{
+    value:2,
+    next:{
+      value:3,
+      next:null
+    }
+  }
+}
+ list2 = {value:"new val",next:list2}
+
+console.log(list2);/*{
+  value: 'new val',
+  next: { value: 1, next: { value: 2, next: [Object] } }
+}
+ */
+// let current = head;
+// while (current.next !== null) {
+//   current = current.next;
+// }
+// current.next = { value: "end", next: null };
+// console.log(head.next.next);
+// //Note: to change the head part of linked list we create a new variable
+// let mid = { value: "middle", next: null };
+
+// // 1️⃣ сохрани ссылку на старый следующий узел
+// let temp = head.next.next;  // (2)
+
+// // 2️⃣ вставь mid между head и temp
+// head.next.next = mid;
+// mid.next = temp;
+// console.log(head);
